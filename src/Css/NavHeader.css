@@ -1,0 +1,88 @@
+
+.App-header {
+  color: white;
+}
+
+img.logo {
+  width: auto;
+  max-width: 152px;
+  max-height: 50px;
+}
+
+img.ui.image {
+  display: block;
+  margin-top: 19px;
+  margin-bottom: -30px;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.ui.search {
+  font-size: 1em;
+  margin-top: 39px;
+}
+
+.mySearch {
+  width: 100%;
+}
+
+.ui.input {
+  font-size: 1em;
+  height: 22px;
+  margin-top: 4px;
+  width: 100%;
+}
+
+i.content.icon {
+  font-size: x-large;
+  color: white;
+}
+
+button.ui.icon.button {
+  padding: 5px !important;
+}
+
+button.ui.icon.button.btnMenu > i.content.icon {
+  padding-top: 3px;
+}
+
+button.ui.icon.button.btnMenu {
+  position: absolute;
+  right: 0px;
+  background-color: #00000063;
+}
+
+button.ui.icon.button.btnMenu:hover {
+  background: black;
+}
+
+button.ui.icon.button.btnMenu:hover > i.content.icon:hover {
+  color: #ce252a;
+}
+
+button.ui.button.btnExSearch {
+  position: relative;
+  font-size: 8pt;
+  margin-top: 38px;
+}
+
+input[type="button"] {
+  border: none;
+  background-color: #e8e8e8;
+}
+
+.id {
+  background-color: #e8e8e8;
+}
+/*
+.three.wide.column {
+  padding: 0 !important;
+  margin-top: 0;
+  padding-bottom: 14px !important;
+}
+@media only screen and (max-width: 1300px) {
+
+}*/
