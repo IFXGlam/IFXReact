@@ -77,6 +77,10 @@ input[type="button"] {
 .id {
   background-color: #e8e8e8;
 }
+
+button.ui.icon.button.btnMenu {
+  display: none;
+}
 /*
 .three.wide.column {
   padding: 0 !important;
