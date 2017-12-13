@@ -8,11 +8,29 @@
 }
 
 button.ui.icon.button.btnHideExSearch {
-    position: absolute;
-    right: 0;
-    top: 4px;
+    margin-top: 4px;
     background-color: black;
     color: white;
     z-index: 3;
 }
 
+button.ui.button.exSearchBtn {
+    height: 31px;
+    margin-top: 0px;
+    padding-top: 6px;
+    color: white;
+    background-color: black;
+}
+
+button.ui.button.exSearchBtn:hover {
+    background-color: #8d0000;
+    color: white;
+}
+
+button.ui.button.activeExSearchBtn {
+    background-color: #5a0000;
+    height: 31px;
+    margin-top: 0px;
+    padding-top: 6px;
+    color: white;
+}

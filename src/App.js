@@ -12,6 +12,7 @@ export default class App extends Component {
         searchTerm: '',
         extendedSearch: true,
         movies: [],
+        active: "btnFName"
       };
   }
   
@@ -32,7 +33,9 @@ export default class App extends Component {
             searchResult={(event) => event !=="" ? this.setState({searchTerm:event}) : this.setState({searchTerm: ''})}
             movies={this.state.movies}
             extendedSearch={this.state.extendedSearch}
-            extendedSearchHandler={(boolVal) => this.setState({extendedSearch: boolVal})}
+            extendedSearchHandler={(boolVal) => this.setState({ extendedSearch: boolVal })}
+            active={this.state.active}
+            btnHandleClick={(btnID) => this.setState({ active: btnID })}
           />
         </header>
       </div>

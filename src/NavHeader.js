@@ -20,6 +20,8 @@ const NavHeader = (props) => {
             <ExtendedSearchBar
               extendedSearch={props.extendedSearch}
               extendedSearchHandler={(value) => props.extendedSearchHandler(value)}
+              active={props.active}
+              btnHandleClick={(btnID) => props.btnHandleClick(btnID)}
             />
           </Grid.Column>
           <Grid.Column width={6}>
