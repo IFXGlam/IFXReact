@@ -11,11 +11,11 @@ const ExtendedSearchBar = (props) => {
       <Grid>
           <Grid.Column width={11}>
             <Button.Group floated="right">
-              <Button id="btnYears" className={props.active==="btnYears" ? "activeExSearchBtn" : "exSearchBtn"} onClick={props.btnHandleClick.bind(this, "btnYears")}>טווח שנים</Button>
-              <Button id="btnGenre" className={props.active==="btnGenre" ? "activeExSearchBtn" : "exSearchBtn"} onClick={props.btnHandleClick.bind(this, "btnGenre")}>ז'נר</Button>
-              <Button id="btnHName" className={props.active==="btnHName" ? "activeExSearchBtn" : "exSearchBtn"} onClick={props.btnHandleClick.bind(this, "btnHName")}>אישית</Button>
-              <Button id="btnFName" className={props.active==="btnFName" ? "activeExSearchBtn" : "exSearchBtn"} onClick={props.btnHandleClick.bind(this, "btnFName")}>שם הסרט</Button>
-
+              <Button className={props.active===5 ? "activeExSearchBtn" : "exSearchBtn"} onClick={props.btnHandleClick.bind(this, 5)}>טווח שנים</Button>
+              <Button className={props.active===4 ? "activeExSearchBtn" : "exSearchBtn"} onClick={props.btnHandleClick.bind(this, 4)}>ז'נר</Button>
+              <Button className={props.active===3 ? "activeExSearchBtn" : "exSearchBtn"} onClick={props.btnHandleClick.bind(this, 3)}>אישית</Button>
+              <Button className={props.active===2 ? "activeExSearchBtn" : "exSearchBtn"} onClick={props.btnHandleClick.bind(this, 2)}>שם הסרט</Button>
+              <Button className={props.active===1 ? "activeExSearchBtn" : "exSearchBtn"} onClick={props.btnHandleClick.bind(this, 1)}>כללי</Button>
             </Button.Group>
           </Grid.Column>
           <Grid.Column width={5}>

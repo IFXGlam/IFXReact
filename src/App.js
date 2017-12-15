@@ -12,7 +12,7 @@ export default class App extends Component {
         searchTerm: '',
         extendedSearch: true,
         movies: [],
-        active: "btnFName"
+        active: 1
       };
   }
   
@@ -20,6 +20,10 @@ export default class App extends Component {
     this.setState({
       movies: SearchJson.movies//[...Object.entries(SearchJson.movies)]
     });
+  }
+
+  searchEngineHandel = (btnNum) => {
+    this.setState({ active: btnNum })
   }
 
   render() {
@@ -35,7 +39,7 @@ export default class App extends Component {
             extendedSearch={this.state.extendedSearch}
             extendedSearchHandler={(boolVal) => this.setState({ extendedSearch: boolVal })}
             active={this.state.active}
-            btnHandleClick={(btnID) => this.setState({ active: btnID })}
+            btnHandleClick={(btnNum) => this.searchEngineHandel(btnNum)}
           />
         </header>
       </div>

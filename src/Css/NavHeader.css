@@ -64,9 +64,11 @@ button.ui.icon.button.btnMenu:hover > i.content.icon:hover {
 }
 
 button.ui.button.btnExSearch {
-  position: relative;
   font-size: 8pt;
   margin-top: 38px;
+  right: 1px;
+  direction: rtl;
+  position: absolute;
 }
 
 input[type="button"] {
@@ -80,6 +82,10 @@ input[type="button"] {
 
 button.ui.icon.button.btnMenu {
   display: none;
+}
+
+.ui.search {
+  z-index: 3;
 }
 /*
 .three.wide.column {
