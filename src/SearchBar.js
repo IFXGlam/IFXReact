@@ -19,9 +19,10 @@ import { Label } from 'semantic-ui-react'
         </div>
 */
 const SearchBar = (props) => {
+  const KEYS_TO_FILTERS_AllMovies = ['nameHeb', 'nameEng', 'directorName', 'genre', 'releaseDate'];
   const KEYS_TO_FILTERS_Movies = ['nameHeb', 'nameEng'];
   const KEYS_TO_FILTERS_People = ['directorName'];
-  const filteredMovies = props.active===2 || props.active===1 ? props.movies.filter(createFilter(props.searchTerm, KEYS_TO_FILTERS_Movies)) : 
+  const filteredMovies = props.active===1 ? props.movies.filter(createFilter(props.searchTerm, KEYS_TO_FILTERS_AllMovies)) : props.active===2 ? props.movies.filter(createFilter(props.searchTerm, KEYS_TO_FILTERS_Movies)) : 
   props.active===3 ? props.movies.filter(createFilter(props.searchTerm, KEYS_TO_FILTERS_People)) : null;
   const searchArrayHeb = ["חיפוש", "חיפוש שם הסרט בעברית / באנגלית", "שם במאי / מפיק / שחקן", "ז'נר", "טווח שנים"]
   return (
@@ -34,22 +35,33 @@ const SearchBar = (props) => {
       <div className="results">
         
       </div>
-      {props.active===2 || props.active===1 ?
+      {props.active===1 ?
+      props.searchTerm!=="" ? filteredMovies.map(movie => {
+          return (
+            <div className="id" key={"movie_" + movie.id}>
+              
+                <input type="button" value={movie.nameHeb.includes(props.searchTerm)||movie.nameEng.includes(props.searchTerm) ? movie.nameHeb +" / "+ movie.nameEng : 
+                movie.directorName.includes(props.searchTerm) ? movie.directorName : movie.genre.includes(props.searchTerm) ? movie.genre : 
+                Number(props.searchTerm) <= movie.releaseDate ? String(movie.releaseDate) : null } onClick={props.searchResult.bind(this, (this.value))}/>
+            </div>
+          );
+        }) : null : null}
+      {props.active===2 ?
       props.searchTerm!=="" ? filteredMovies.map(movie => {
           return (
             <div className="id" key={"movie_" + movie.id}>
                 <input type="button" value={movie.nameHeb +" / "+ movie.nameEng} onClick={props.searchResult.bind(this, (movie.nameHeb +" / "+ movie.nameEng))}/>
             </div>
           );
-        }) : null : props.active===3 ?
+        }) : null : null}
+      {props.active===3 ?
         props.searchTerm!=="" ? filteredMovies.map(movie => {
           return (
             <div className="id" key={"movie_" + movie.id}>
                 <input type="button" value={movie.directorName} onClick={props.searchResult.bind(this, (movie.directorName))}/>
             </div>
           );
-        }) : null : null
-      }
+        }) : null : null}
     </div>
   );
 }

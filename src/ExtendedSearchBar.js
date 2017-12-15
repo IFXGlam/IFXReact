@@ -1,7 +1,6 @@
 import React from 'react';
 import './Css/ExtendedSearchBar.css';
-import { Button } from 'semantic-ui-react';
-import { Grid, Image } from 'semantic-ui-react';
+import { Grid, Button } from 'semantic-ui-react';
 
 const ExtendedSearchBar = (props) => {
 
