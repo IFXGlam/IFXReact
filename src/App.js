@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Css/App.css';
 import NavHeader from './NavHeader';
+import MovieDetails from './MovieDetails';
 import SearchJson from './Json/JsonSearch.json';
 //import SearchInput, {createFilter} from 'react-search-input'
 
@@ -40,6 +41,10 @@ export default class App extends Component {
             extendedSearchHandler={(boolVal) => this.setState({ extendedSearch: boolVal })}
             active={this.state.active}
             btnHandleClick={(btnNum) => this.searchEngineHandel(btnNum)}
+          />
+          <MovieDetails
+            movies={this.state.movies}
+            active={this.state.active}
           />
         </header>
       </div>
