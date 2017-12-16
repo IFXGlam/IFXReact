@@ -6,23 +6,29 @@ const Movie = (props) => {
 
     return (
       <div id="allMoviesDiv">
-        <Reveal animated='move up'>
-          <Reveal.Content visible>
-            <Image src={props.urlPic} size='small' />
-          </Reveal.Content>
-          <Reveal.Content hidden>
-            <Card>
-              <Card.Content>
-                <Card.Header>
-                  {props.nameHeb}
-                </Card.Header>
-                <Card.Description>
-                  {props.summary}
-                </Card.Description>
-              </Card.Content>
-            </Card>
-          </Reveal.Content>
-        </Reveal>
+        <Card>
+        <Image src={props.urlPic} />
+        <Card.Content>
+          <Card.Header>
+            {props.nameHeb}
+            <br/>
+            {props.nameEng}
+            <br/>
+            {props.releaseDate}
+          </Card.Header>
+          <Card.Description>
+            <strong>מפיק: </strong>{props.directorName}
+            <br/>
+            <strong>ז'נר: </strong>{props.genre}
+            <br/>
+            <strong>משך ריצה: </strong>{props.runTime}
+            <br/>
+            <strong>תקציר: </strong>
+            {props.summary}
+          </Card.Description>
+        </Card.Content>
+      </Card>
+       
       </div>
     );
 }
