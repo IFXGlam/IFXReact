@@ -1,5 +1,6 @@
 import React from 'react'
 import {createFilter} from 'react-search-input'
+import "./Css/SearchBar.css"
 
 const SearchBar = (props) => {
   const KEYS_TO_FILTERS_AllMovies = ['nameHeb', 'nameEng', 'directorName', 'genre', 'releaseDate'];
@@ -15,38 +16,40 @@ const SearchBar = (props) => {
         <input className="prompt" type="text" onChange={props.searchUpdated.bind(this)} placeholder={searchArrayHeb[props.active-1]} value={props.searchTerm} />
         <i className="search icon"></i>
       </div>
-      <div className="results">
-        
-      </div>
-      {props.active===1 ?
-      props.searchTerm!=="" ? filteredMovies.map(movie => {
-          return (
-            <div className="id" key={"movie_" + movie.id}>
-              
-                <input type="button" value={movie.nameHeb.includes(props.searchTerm)||movie.nameEng.includes(props.searchTerm) ? movie.nameHeb +" / "+ movie.nameEng : 
-                movie.directorName.includes(props.searchTerm) ? movie.directorName : movie.genre.includes(props.searchTerm) ? movie.genre : 
-                Number(props.searchTerm) <= movie.releaseDate ? String(movie.releaseDate) : null } onClick={props.searchResult.bind(this, (this.value))}/>
-            </div>
-          );
-        }) : null : null}
-      {props.active===2 ?
-      props.searchTerm!=="" ? filteredMovies.map(movie => {
-          return (
-            <div className="id" key={"movie_" + movie.id}>
-                <input type="button" value={movie.nameHeb +" / "+ movie.nameEng} onClick={props.searchResult.bind(this, (movie.nameHeb +" / "+ movie.nameEng))}/>
-            </div>
-          );
-        }) : null : null}
-      {props.active===3 ?
+      <div className="myResults">
+        {props.active===1 ?
         props.searchTerm!=="" ? filteredMovies.map(movie => {
-          return (
-            <div className="id" key={"movie_" + movie.id}>
-                <input type="button" value={movie.directorName} onClick={props.searchResult.bind(this, (movie.directorName))}/>
-            </div>
-          );
-        }) : null : null}
+            return (
+              <div className="id" key={"movie_" + movie.id}>  
+                  <input type="button" value={movie.nameHeb.includes(props.searchTerm) ? movie.nameHeb : movie.nameEng.includes(props.searchTerm) ? movie.nameEng :
+                  movie.directorName.includes(props.searchTerm) ? movie.directorName : movie.genre.includes(props.searchTerm) ? movie.genre : 
+                  Number(props.searchTerm) <= movie.releaseDate ? String(movie.releaseDate) : null } onClick={props.searchResult.bind(this, (this.value))}/>
+              </div>
+            );
+          }) : null : null}
+        {props.active===2 ?
+        props.searchTerm!=="" ? filteredMovies.map(movie => {
+            return (
+              <div className="id" key={"movie_" + movie.id}>
+                  {movie.nameHeb.includes(props.searchTerm)} ?
+                  <input type="button" value={movie.nameHeb} onClick={props.searchResult.bind(this, (movie.nameHeb))}/> :
+                  {movie.nameEng.includes(props.searchTerm)} ?
+                  <input type="button" value={movie.nameEng} onClick={props.searchResult.bind(this, (movie.nameEng))}/> : {null}
+              </div>
+            );
+          }) : null : null}
+        {props.active===3 ?
+          props.searchTerm!=="" ? filteredMovies.map(movie => {
+            return (
+              <div className="id" key={"movie_" + movie.id}>
+                  <input type="button" value={movie.directorName} onClick={props.searchResult.bind(this, (movie.directorName))}/>
+              </div>
+            );
+          }) : null : null}
+      </div>
     </div>
   );
 }
 
 export default SearchBar
+

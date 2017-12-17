@@ -45,6 +45,7 @@ export default class App extends Component {
           <MovieDetails
             movies={this.state.movies}
             active={this.state.active}
+            searchTerm={this.state.searchTerm}
           />
         </header>
       </div>
